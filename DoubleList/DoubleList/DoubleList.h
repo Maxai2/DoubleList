@@ -96,10 +96,11 @@ public:
 	void insert(int data, int index)
 	{
 		Node* temp = nullptr;
+		Node* node = nullptr;
 
 		if (index == 1)
 		{
-			Node* node = head;
+			node = head;
 			temp = node;
 			head = new Node;
 			head->data = data;
@@ -109,7 +110,7 @@ public:
 		else
 		if (index == this->count)
 		{
-			Node* node = tail;
+			node = tail;
 			temp = node;
 			tail = new Node;
 			tail->data = data;
@@ -131,6 +132,8 @@ public:
 			}
 			else
 			{
+				node = head;
+
 				for (int i = 0; i < index - 1; i++)
 					node = node->next;
 
