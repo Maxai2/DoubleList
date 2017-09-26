@@ -20,26 +20,32 @@ void main()
 		cout << list[i] << endl;
 	}
 
-	list.remove(3);
+	cout << endl << list.getCount() << endl;
 
+	list.remove(3);
 	cout << endl;
 	for (int i = list.getCount() - 1; i >= 0; i--)
 	{
 		cout << list[i] << endl;
 	}
 
-	//list.insert(25, 1);
-	//cout << endl;
-	//for (int i = list.getCount() - 1; i >= 0; i--)
-	//{
-	//	cout << list[i] << endl;
-	//}
+	cout << endl << list.getCount() << endl;
 
-	//list.add(55);
-	//cout << endl;
-	//for (int i = 0; i < list.getCount(); i++)
-	//{
-	//	cout << list[i] << endl;
-	//}
+	list.insert(25, 6);
+	cout << endl;
+	for (int i = list.getCount() - 1; i >= 0; i--)
+	{
+		cout << list[i] << endl;
+	}
 
+	cout << endl << list.getCount() << endl;
+
+	list.add(55);
+	cout << endl;
+	for (int i = 0; i < list.getCount(); i++)
+	{
+		cout << list[i] << endl;
+	}
+
+	cout << endl << list.getCount() << endl;
 }

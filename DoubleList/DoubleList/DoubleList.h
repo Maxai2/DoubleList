@@ -100,35 +100,27 @@ public:
 
 		if (index == 1)
 		{
-			node = head;
-			temp = node;
+			temp = head;
 			head = new Node;
 			head->data = data;
 			head->next = temp;
 			head->previous = nullptr;
+			
+			this->count++;
 		}
 		else
-		if (index == this->count)
-		{
-			node = tail;
-			temp = node;
-			tail = new Node;
-			tail->data = data;
-			tail->next = nullptr;
-			tail->previous = temp;
-		}
+		if (index == getCount())
+			add(data);
+		else
 		{
 			index--;
 
-			if ((this->count / 2) < index)
+			if ((this->count / 2) <= index)
 			{
 				node = tail;
 
-				for (int i = count - 1; i > index; i--)
+				for (int i = this->count - 1; i > index - 1; i--)
 					node = node->previous;
-
-				node->next = node->next->next;
-				node->next->previous = node;
 			}
 			else
 			{
@@ -136,14 +128,17 @@ public:
 
 				for (int i = 0; i < index - 1; i++)
 					node = node->next;
-
-				node->next = node->next->next;
-				node->next->previous = node;
 			}
-		}
 
-		this->count++;
-		//		delete temp;
+			temp = node->next;
+			node->next = new Node;
+			node->next->next = temp;
+			node->next->data = data;
+			node->next->previous = node;
+
+			this->count++;
+		}
+		//delete temp;
 	}
 
 	int& operator[](int index)
